@@ -1,0 +1,1 @@
+REPLACE INTO spell_script_names (spell_id, ScriptName) VALUE (248522, "spell_dru_fury_of_nature_heal");

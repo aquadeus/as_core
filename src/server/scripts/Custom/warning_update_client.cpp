@@ -1,0 +1,18 @@
+////////////////////////////////////////////////////////////////////////////////
+//
+//  MILLENIUM-STUDIO
+//  Copyright 2016 Millenium-studio SARL
+//  All Rights Reserved.
+//
+////////////////////////////////////////////////////////////////////////////////
+
+#include "ScriptPCH.h"
+#include "ScriptMgr.h"
+
+
+#ifndef __clang_analyzer__
+void AddSC_warning_update_client()
+{
+    //new WarningUpdateClient();
+};
+#endif

@@ -1,0 +1,20 @@
+////////////////////////////////////////////////////////////////////////////////
+//
+//  MILLENIUM-STUDIO
+//  Copyright 2016 Millenium-studio SARL
+//  All Rights Reserved.
+//
+////////////////////////////////////////////////////////////////////////////////
+
+#ifndef DEF_SETHEKK_HALLS_H
+#define DEF_SETHEKK_HALLS_H
+
+#include "OutlandPCH.h"
+
+enum eTypes
+{
+    DATA_IKISSDOOREVENT = 1,
+    TYPE_ANZU_ENCOUNTER = 2
+};
+#endif
+

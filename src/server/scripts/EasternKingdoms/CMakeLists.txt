@@ -1,0 +1,392 @@
+#
+#  MILLENIUM-STUDIO
+#  Copyright 2016 Millenium-studio SARL
+#  All Rights Reserved.
+#
+
+if (USE_SCRIPTPCH)
+  set(scriptsEK_STAT_PCH_HDR PrecompiledHeaders/EasternKingdomsPCH.h)
+  set(scriptsEK_STAT_PCH_SRC PrecompiledHeaders/EasternKingdomsPCH.cpp)
+endif ()
+
+file(GLOB_RECURSE sources_UBRS UpperBlackRockSpire/*.hpp UpperBlackRockSpire/*.cpp UpperBlackRockSpire/*.hxx)
+
+set(scriptsEK_STAT_SRCS
+  ${scriptsEK_STAT_SRCS}
+  ${sources_UBRS}
+  ../../game/AI/ScriptedAI/ScriptedEscortAI.cpp
+  ../../game/AI/ScriptedAI/ScriptedCreature.cpp
+  ../../game/AI/ScriptedAI/ScriptedFollowerAI.cpp
+  ghostlands.cpp
+  eversong_woods.cpp
+  elwynn_forest.cpp
+  dun_morogh.cpp
+  AlteracValley/boss_galvangar.cpp
+  AlteracValley/boss_balinda.cpp
+  AlteracValley/boss_drekthar.cpp
+  AlteracValley/boss_vanndar.cpp
+  AlteracValley/alterac_valley.cpp
+  Scholomance/boss_the_ravenian.cpp
+  Scholomance/boss_instructor_malicia.cpp
+  Scholomance/boss_death_knight_darkreaver.cpp
+  Scholomance/boss_illucia_barov.cpp
+  Scholomance/scholomance.h
+  Scholomance/boss_vectus.cpp
+  Scholomance/boss_jandice_barov.cpp
+  Scholomance/boss_kormok.cpp
+  Scholomance/boss_lord_alexei_barov.cpp
+  Scholomance/boss_doctor_theolen_krastinov.cpp
+  Scholomance/boss_darkmaster_gandling.cpp
+  Scholomance/instance_scholomance.cpp
+  Scholomance/boss_lorekeeper_polkelt.cpp
+  Scholomance/boss_ras_frostwhisper.cpp
+  isle_of_queldanas.cpp
+  ZulGurub/boss_grilek.cpp
+  ZulGurub/boss_hazzarah.cpp
+  ZulGurub/boss_jindo_the_godbreaker.cpp
+  ZulGurub/boss_kilnara.cpp
+  ZulGurub/boss_mandokir.cpp
+  ZulGurub/boss_renataki.cpp
+  ZulGurub/boss_venoxis.cpp
+  ZulGurub/boss_wushoolay.cpp
+  ZulGurub/boss_zanzil.cpp
+  ZulGurub/instance_zulgurub.cpp
+  ZulGurub/zulgurub.h
+  wetlands.cpp
+  arathi_highlands.cpp
+  Gnomeregan/instance_gnomeregan.cpp
+  Gnomeregan/gnomeregan.cpp
+  Gnomeregan/gnomeregan.h
+  BlackrockDepths/boss_high_interrogator_gerstahn.cpp
+  BlackrockDepths/boss_gorosh_the_dervish.cpp
+  BlackrockDepths/blackrock_depths.cpp
+  BlackrockDepths/boss_anubshiah.cpp
+  BlackrockDepths/boss_tomb_of_seven.cpp
+  BlackrockDepths/boss_general_angerforge.cpp
+  BlackrockDepths/boss_grizzle.cpp
+  BlackrockDepths/boss_ambassador_flamelash.cpp
+  BlackrockDepths/instance_blackrock_depths.cpp
+  BlackrockDepths/boss_moira_bronzebeard.cpp
+  BlackrockDepths/blackrock_depths.h
+  BlackrockDepths/boss_emperor_dagran_thaurissan.cpp
+  BlackrockDepths/boss_magmus.cpp
+  BaradinHold/boss_argaloth.cpp
+  BaradinHold/boss_occuthar.cpp
+  BaradinHold/boss_alizabal.cpp
+  BaradinHold/instance_baradin_hold.cpp
+  BaradinHold/baradin_hold.h
+  TheStonecore/boss_corborus.cpp
+  TheStonecore/boss_slabhide.cpp
+  TheStonecore/boss_ozruk.cpp
+  TheStonecore/boss_high_priestess_azil.cpp
+  TheStonecore/instance_the_stonecore.cpp
+  TheStonecore/the_stonecore.cpp
+  TheStonecore/the_stonecore.h
+  TheStockades/boss_hogger.cpp
+  TheStockades/boss_lord_overheat.cpp
+  TheStockades/boss_randolph_moloch.cpp
+  TheStockades/instance_the_stockades.cpp
+  TheStockades/the_stockades.cpp
+  TheStockades/the_stockades.h
+  GrimBatol/boss_general_umbriss.cpp
+  GrimBatol/boss_forgemaster_throngus.cpp
+  GrimBatol/boss_drahga_shadowburner.cpp
+  GrimBatol/boss_erudax.cpp
+  GrimBatol/instance_grim_batol.cpp
+  GrimBatol/grim_batol.cpp
+  GrimBatol/grim_batol.h
+  BastionOfTwilight/boss_halfus_wyrmbreaker.cpp
+  BastionOfTwilight/boss_theralion_and_valiona.cpp
+  BastionOfTwilight/boss_council_of_ascendents.cpp
+  BastionOfTwilight/boss_chogall.cpp
+  BastionOfTwilight/boss_sinestra.cpp
+  BastionOfTwilight/instance_bastion_of_twilight.cpp
+  BastionOfTwilight/bastion_of_twilight.cpp
+  BastionOfTwilight/bastion_of_twilight.h
+  ScarletEnclave/chapter2.cpp
+  ScarletEnclave/chapter5.cpp
+  ScarletEnclave/chapter1.cpp
+  ScarletEnclave/the_scarlet_enclave.cpp
+  eastern_plaguelands.cpp
+  MoltenCore/boss_gehennas.cpp
+  MoltenCore/boss_lucifron.cpp
+  MoltenCore/boss_golemagg.cpp
+  MoltenCore/boss_majordomo_executus.cpp
+  MoltenCore/boss_baron_geddon.cpp
+  MoltenCore/boss_ragnaros.cpp
+  MoltenCore/boss_garr.cpp
+  MoltenCore/molten_core.h
+  MoltenCore/instance_molten_core.cpp
+  MoltenCore/boss_sulfuron_harbinger.cpp
+  MoltenCore/boss_magmadar.cpp
+  MoltenCore/boss_shazzrah.cpp
+  Stratholme/boss_baroness_anastari.cpp
+  Stratholme/boss_nerubenkan.cpp
+  Stratholme/instance_stratholme.cpp
+  Stratholme/boss_dathrohan_balnazzar.cpp
+  Stratholme/boss_timmy_the_cruel.cpp
+  Stratholme/boss_baron_rivendare.cpp
+  Stratholme/boss_magistrate_barthilas.cpp
+  Stratholme/boss_order_of_silver_hand.cpp
+  Stratholme/boss_ramstein_the_gorger.cpp
+  Stratholme/boss_cannon_master_willey.cpp
+  Stratholme/boss_maleki_the_pallid.cpp
+  Stratholme/boss_postmaster_malown.cpp
+  Stratholme/stratholme.h
+  Stratholme/stratholme.cpp
+  SunkenTemple/sunken_temple.cpp
+  SunkenTemple/sunken_temple.h
+  SunkenTemple/instance_sunken_temple.cpp
+  MagistersTerrace/boss_felblood_kaelthas.cpp
+  MagistersTerrace/magisters_terrace.h
+  MagistersTerrace/boss_priestess_delrissa.cpp
+  MagistersTerrace/instance_magisters_terrace.cpp
+  MagistersTerrace/boss_selin_fireheart.cpp
+  MagistersTerrace/boss_vexallus.cpp
+  MagistersTerrace/magisters_terrace.cpp
+  Uldaman/uldaman.cpp
+  Uldaman/boss_ironaya.cpp
+  Uldaman/uldaman.h
+  Uldaman/instance_uldaman.cpp
+  Uldaman/boss_archaedas.cpp
+  SunwellPlateau/boss_eredar_twins.cpp
+  SunwellPlateau/boss_kiljaeden.cpp
+  SunwellPlateau/sunwell_plateau.h
+  SunwellPlateau/boss_muru.cpp
+  SunwellPlateau/instance_sunwell_plateau.cpp
+  SunwellPlateau/boss_kalecgos.cpp
+  SunwellPlateau/boss_brutallus.cpp
+  SunwellPlateau/sunwell_plateau.cpp
+  SunwellPlateau/boss_felmyst.cpp
+  stranglethorn_vale.cpp
+  Deadmines/boss_glubtok.cpp
+  Deadmines/boss_helix_gearbreaker.cpp
+  Deadmines/boss_foereaper5000.cpp
+  Deadmines/boss_admiral_ripsnarl.cpp
+  Deadmines/boss_captain_cookie.cpp
+  Deadmines/boss_vanessa_vancleef.cpp
+  Deadmines/deadmines.h
+  Deadmines/deadmines.cpp
+  Deadmines/instance_deadmines.cpp
+  duskwood.cpp
+  ScarletMonastery/boss_brother_korloff.cpp
+  ScarletMonastery/boss_inquisitor_whitemane.cpp
+  ScarletMonastery/boss_headless_horseman.cpp
+  ScarletMonastery/boss_thalnos_the_soulrender.cpp
+  ScarletMonastery/scarlet_monastery.cpp
+  ScarletMonastery/instance_scarlet_monastery.cpp
+  ScarletMonastery/scarlet_monastery.h
+  undercity.cpp
+  silvermoon_city.cpp
+  ShadowfangKeep/boss_baron_ashbury.cpp
+  ShadowfangKeep/boss_baron_silverlaine.cpp
+  ShadowfangKeep/boss_commander_springvale.cpp
+  ShadowfangKeep/boss_lord_valden.cpp
+  ShadowfangKeep/boss_lord_godfrey.cpp
+  ShadowfangKeep/shadowfang_keep.cpp
+  ShadowfangKeep/instance_shadowfang_keep.cpp
+  ShadowfangKeep/shadowfang_keep.h
+  BlackwingLair/boss_chromaggus.cpp
+  BlackwingLair/boss_razorgore.cpp
+  BlackwingLair/boss_firemaw.cpp
+  BlackwingLair/boss_broodlord_lashlayer.cpp
+  BlackwingLair/boss_ebonroc.cpp
+  BlackwingLair/instance_blackwing_lair.cpp
+  BlackwingLair/boss_vaelastrasz.cpp
+  BlackwingLair/boss_nefarian.cpp
+  BlackwingLair/boss_flamegor.cpp
+  BlackwingLair/boss_victor_nefarius.cpp
+  blasted_lands.cpp
+  ZulAman/boss_halazzi.cpp
+  ZulAman/boss_hexlord.cpp
+  ZulAman/boss_daakara.cpp
+  ZulAman/boss_akilzon.cpp
+  ZulAman/instance_zulaman.cpp
+  ZulAman/boss_janalai.cpp
+  ZulAman/boss_nalorakk.cpp
+  ZulAman/zulaman.cpp
+  ZulAman/zulaman.h
+  hinterlands.cpp
+  western_plaguelands.cpp
+  westfall.cpp
+  silverpine_forest.cpp
+  Karazhan/instance_karazhan.cpp
+  Karazhan/boss_nightbane.cpp
+  Karazhan/karazhan.cpp
+  Karazhan/boss_curator.cpp
+  Karazhan/boss_shade_of_aran.cpp
+  Karazhan/boss_netherspite.cpp
+  Karazhan/boss_maiden_of_virtue.cpp
+  Karazhan/boss_midnight.cpp
+  Karazhan/boss_prince_malchezaar.cpp
+  Karazhan/bosses_opera.cpp
+  Karazhan/boss_moroes.cpp
+  Karazhan/boss_terestian_illhoof.cpp
+  Karazhan/karazhan.h
+  gilneas.cpp
+  gilneas.hpp
+  ThroneOfTheTides/boss_lady_nazjar.cpp
+  ThroneOfTheTides/boss_commander_ulthok.cpp
+  ThroneOfTheTides/boss_mindebender_ghursha.cpp
+  ThroneOfTheTides/boss_ozumat.cpp
+  ThroneOfTheTides/instance_throne_of_the_tides.cpp
+  ThroneOfTheTides/throne_of_the_tides.cpp
+  ThroneOfTheTides/throne_of_the_tides.h
+  BlackrockCaverns/boss_romogg_bonecrusher.cpp
+  BlackrockCaverns/boss_corla_hearld_of_twilight.cpp
+  BlackrockCaverns/boss_karsh_steelbender.cpp
+  BlackrockCaverns/boss_beauty.cpp
+  BlackrockCaverns/boss_ascendant_lord_obsidius.cpp
+  BlackrockCaverns/instance_blackrock_caverns.cpp
+  BlackrockCaverns/blackrock_caverns_teleport.cpp
+  BlackrockCaverns/blackrock_caverns.h
+)
+
+MACRO( auto_group ProjectDirectory ProjectSources )
+    SET( DirectorySources "${ProjectSources}" )
+    FOREACH( Source ${DirectorySources} )
+        if ("${Source}" MATCHES "(/)+")
+            STRING( REGEX REPLACE "${ProjectDirectory}" "" RelativePath "${Source}" )
+            STRING( REGEX REPLACE "[\\\\/][^\\\\/]*$" "" RelativePath "${RelativePath}" )
+            STRING( REGEX REPLACE "^[\\\\/]" "" RelativePath "${RelativePath}" )
+            STRING( REGEX REPLACE "/" "\\\\\\\\" RelativePath "${RelativePath}" )
+            SOURCE_GROUP( "${RelativePath}" FILES ${Source} )
+        else()
+            SOURCE_GROUP( "" FILES ${Source} )
+        endif()
+    ENDFOREACH( Source )
+ENDMACRO( auto_group )
+
+auto_group("${CMAKE_CURRENT_SOURCE_DIR}" "${scriptsEK_STAT_SRCS}")
+
+set(scriptsEK_STAT_SRCS
+  ${scriptsEK_STAT_SRCS}
+  )
+
+include_directories(
+  ${CMAKE_BINARY_DIR}
+  ${CMAKE_SOURCE_DIR}/dep/g3dlite/include
+  ${CMAKE_SOURCE_DIR}/dep/SFMT
+  ${CMAKE_SOURCE_DIR}/dep/zlib
+  ${CMAKE_SOURCE_DIR}/dep/recastnavigation/Detour/Include
+  ${CMAKE_SOURCE_DIR}/dep/recastnavigation/Recast/Include
+  ${CMAKE_SOURCE_DIR}/dep/recastnavigation/Detour/
+  ${CMAKE_SOURCE_DIR}/dep/recastnavigation/Recast/
+  ${CMAKE_SOURCE_DIR}/src/server/shared
+  ${CMAKE_SOURCE_DIR}/src/server/shared/Configuration
+  ${CMAKE_SOURCE_DIR}/src/server/shared/Cryptography
+  ${CMAKE_SOURCE_DIR}/src/server/shared/Database
+  ${CMAKE_SOURCE_DIR}/src/server/shared/DataStores
+  ${CMAKE_SOURCE_DIR}/src/server/shared/Debugging
+  ${CMAKE_SOURCE_DIR}/src/server/shared/Dynamic/LinkedReference
+  ${CMAKE_SOURCE_DIR}/src/server/shared/Dynamic
+  ${CMAKE_SOURCE_DIR}/src/server/shared/Logging
+  ${CMAKE_SOURCE_DIR}/src/server/shared/Packets
+  ${CMAKE_SOURCE_DIR}/src/server/shared/Threading
+  ${CMAKE_SOURCE_DIR}/src/server/shared/Utilities
+  ${CMAKE_SOURCE_DIR}/src/server/collision
+  ${CMAKE_SOURCE_DIR}/src/server/collision/Management
+  ${CMAKE_SOURCE_DIR}/src/server/collision/Models
+  ${CMAKE_SOURCE_DIR}/src/server/collision/Maps
+  ${CMAKE_SOURCE_DIR}/src/server/shared
+  ${CMAKE_SOURCE_DIR}/src/server/shared/Database
+  ${CMAKE_SOURCE_DIR}/src/server/game/Garrison
+  ${CMAKE_SOURCE_DIR}/src/server/game/Accounts
+  ${CMAKE_SOURCE_DIR}/src/server/game/Anticheat
+  ${CMAKE_SOURCE_DIR}/src/server/game/Achievements
+  ${CMAKE_SOURCE_DIR}/src/server/game/Cinematic
+  ${CMAKE_SOURCE_DIR}/src/server/game/AI
+  ${CMAKE_SOURCE_DIR}/src/server/game/AI/CoreAI
+  ${CMAKE_SOURCE_DIR}/src/server/game/AI/ScriptedAI
+  ${CMAKE_SOURCE_DIR}/src/server/game/AI/SmartScripts
+  ${CMAKE_SOURCE_DIR}/src/server/game/AuctionHouse
+  ${CMAKE_SOURCE_DIR}/src/server/game/Battlefield
+  ${CMAKE_SOURCE_DIR}/src/server/game/Battlefield/Zones
+  ${CMAKE_SOURCE_DIR}/src/server/game/Battlegrounds
+  ${CMAKE_SOURCE_DIR}/src/server/game/Battlegrounds/Zones
+  ${CMAKE_SOURCE_DIR}/src/server/game/BattlePet
+  ${CMAKE_SOURCE_DIR}/src/server/game/BattlePay
+  ${CMAKE_SOURCE_DIR}/src/server/game/Calendar
+  ${CMAKE_SOURCE_DIR}/src/server/game/Chat
+  ${CMAKE_SOURCE_DIR}/src/server/game/Chat/Channels
+  ${CMAKE_SOURCE_DIR}/src/server/game/Conditions
+  ${CMAKE_SOURCE_DIR}/src/server/shared/Configuration
+  ${CMAKE_SOURCE_DIR}/src/server/game/Combat
+  ${CMAKE_SOURCE_DIR}/src/server/game/DataStores
+  ${CMAKE_SOURCE_DIR}/src/server/game/DungeonFinding
+  ${CMAKE_SOURCE_DIR}/src/server/game/Entities/AreaTrigger
+  ${CMAKE_SOURCE_DIR}/src/server/game/Entities/Corpse
+  ${CMAKE_SOURCE_DIR}/src/server/game/Entities/Creature
+  ${CMAKE_SOURCE_DIR}/src/server/game/Entities/DynamicObject
+  ${CMAKE_SOURCE_DIR}/src/server/game/Entities/Item
+  ${CMAKE_SOURCE_DIR}/src/server/game/Entities/Item/Container
+  ${CMAKE_SOURCE_DIR}/src/server/game/Entities/Item/Artifact
+  ${CMAKE_SOURCE_DIR}/src/server/game/Entities/GameObject
+  ${CMAKE_SOURCE_DIR}/src/server/game/Entities/Object
+  ${CMAKE_SOURCE_DIR}/src/server/game/Entities/Object/Updates
+  ${CMAKE_SOURCE_DIR}/src/server/game/Entities/Pet
+  ${CMAKE_SOURCE_DIR}/src/server/game/Entities/Player
+  ${CMAKE_SOURCE_DIR}/src/server/game/Entities/Transport
+  ${CMAKE_SOURCE_DIR}/src/server/game/Entities/Unit
+  ${CMAKE_SOURCE_DIR}/src/server/game/Entities/Vehicle
+  ${CMAKE_SOURCE_DIR}/src/server/game/Events
+  ${CMAKE_SOURCE_DIR}/src/server/game/Globals
+  ${CMAKE_SOURCE_DIR}/src/server/game/Grids
+  ${CMAKE_SOURCE_DIR}/src/server/game/Grids/Cells
+  ${CMAKE_SOURCE_DIR}/src/server/game/Grids/Notifiers
+  ${CMAKE_SOURCE_DIR}/src/server/game/Groups
+  ${CMAKE_SOURCE_DIR}/src/server/game/Guilds
+  ${CMAKE_SOURCE_DIR}/src/server/game/Handlers
+  ${CMAKE_SOURCE_DIR}/src/server/game/Instances
+  ${CMAKE_SOURCE_DIR}/src/server/game/LookingForGroup
+  ${CMAKE_SOURCE_DIR}/src/server/game/Loot
+  ${CMAKE_SOURCE_DIR}/src/server/game/Mails
+  ${CMAKE_SOURCE_DIR}/src/server/game/Miscellaneous
+  ${CMAKE_SOURCE_DIR}/src/server/game/Maps
+  ${CMAKE_SOURCE_DIR}/src/server/game/Movement
+  ${CMAKE_SOURCE_DIR}/src/server/game/Movement/MovementGenerators
+  ${CMAKE_SOURCE_DIR}/src/server/game/Movement/Spline
+  ${CMAKE_SOURCE_DIR}/src/server/game/Movement/Waypoints
+  ${CMAKE_SOURCE_DIR}/src/server/game/Opcodes
+  ${CMAKE_SOURCE_DIR}/src/server/game/OutdoorPvP
+  ${CMAKE_SOURCE_DIR}/src/server/game/OutdoorPvE
+  ${CMAKE_SOURCE_DIR}/src/server/game/Pools
+  ${CMAKE_SOURCE_DIR}/src/server/game/PrecompiledHeaders
+  ${CMAKE_SOURCE_DIR}/src/server/game/PetBattle
+  ${CMAKE_SOURCE_DIR}/src/server/game/Quests
+  ${CMAKE_SOURCE_DIR}/src/server/game/Reputation
+  ${CMAKE_SOURCE_DIR}/src/server/game/RecruitAFriend
+  ${CMAKE_SOURCE_DIR}/src/server/game/Scripting
+  ${CMAKE_SOURCE_DIR}/src/server/game/Server
+  ${CMAKE_SOURCE_DIR}/src/server/game/Server/Protocol
+  ${CMAKE_SOURCE_DIR}/src/server/game/Skills
+  ${CMAKE_SOURCE_DIR}/src/server/game/Spells
+  ${CMAKE_SOURCE_DIR}/src/server/game/Spells/Auras
+  ${CMAKE_SOURCE_DIR}/src/server/game/Spells/SpellLog
+  ${CMAKE_SOURCE_DIR}/src/server/game/Texts
+  ${CMAKE_SOURCE_DIR}/src/server/game/Tickets
+  ${CMAKE_SOURCE_DIR}/src/server/game/Tools
+  ${CMAKE_SOURCE_DIR}/src/server/game/Vignette
+  ${CMAKE_SOURCE_DIR}/src/server/game/Warden
+  ${CMAKE_SOURCE_DIR}/src/server/game/Warden/Modules
+  ${CMAKE_SOURCE_DIR}/src/server/game/Weather
+  ${CMAKE_SOURCE_DIR}/src/server/game/World
+  ${CMAKE_CURRENT_SOURCE_DIR}/PrecompiledHeaders
+  ${ACE_INCLUDE_DIR}
+  ${MYSQL_INCLUDE_DIR}
+  ${CURL_INCLUDE_DIR}
+  ${EASYJSON_INCLUDE_DIR}
+  ${MSFRAMEWORK_INCLUDE_DIR}
+  ${Boost_INCLUDE_DIR}
+  ${CMAKE_SOURCE_DIR}/dep/process
+)
+
+add_library(scriptsEasternKingdoms STATIC ${scriptsEK_STAT_SRCS} ${scriptsEK_STAT_PCH_SRC})
+add_dependencies(scriptsEasternKingdoms revision_data.h)
+set_property(TARGET scriptsEasternKingdoms PROPERTY FOLDER "scripts")
+
+if (USE_SCRIPTPCH)
+  add_cxx_pch(scriptsEasternKingdoms ${scriptsEK_STAT_PCH_HDR} ${scriptsEK_STAT_PCH_SRC})
+endif()
+
+message("  -> Prepared: Eastern Kingdoms")

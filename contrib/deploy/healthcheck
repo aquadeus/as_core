@@ -1,0 +1,17 @@
+#!/usr/bin/php
+<?php
+
+preg_match_all("/SOAP\.Port = (\w+)/", file_get_contents("/usr/local/etc/firestorm/worldserver.conf"), $res);
+$soap_port = $res[1][0];
+
+$client = new SoapClient(null, [
+    'location'   => "http://127.0.0.1:${soap_port}",
+    'uri'        => 'urn:TC',
+    'style'      => SOAP_RPC,
+    'login'      => getenv('SOAP_USERNAME'),
+    'password'   => getenv('SOAP_PASSWORD')
+]);
+$command = new SoapParam('.server info', 'command');
+
+$resp = $client->executeCommand($command);
+echo $resp;
